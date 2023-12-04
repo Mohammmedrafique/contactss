@@ -15,7 +15,7 @@ const ContactManagement = () => {
   useEffect(() => {
     // Fetch all contacts from the backend
     axios
-      .get("http://localhost:8000/contacts")
+      .get("https://wild-cyan-duckling-tie.cyclic.app/contacts")
       .then((response) => setContacts(response.data))
       .catch((error) => console.error(error));
   }, []);
@@ -35,7 +35,7 @@ const ContactManagement = () => {
   const handleUpdate = () => {
     // Update the contact on the backend
     axios
-      .put(`http://localhost:5000/contacts/${editedContact.id}`, editedContact)
+      .put(`https://wild-cyan-duckling-tie.cyclic.app/contacts/${editedContact.id}`, editedContact)
       .then((response) => {
         // Update the contacts state with the edited contact
         setContacts((prevContacts) =>
@@ -58,7 +58,7 @@ const ContactManagement = () => {
   const handleDelete = (id) => {
     // Delete the contact on the backend
     axios
-      .delete(`http://localhost:5000/contacts/${id}`)
+      .delete(`https://wild-cyan-duckling-tie.cyclic.app/contacts/${id}`)
       .then(() => {
         // Remove the deleted contact from the contacts state
         setContacts((prevContacts) =>
@@ -71,13 +71,13 @@ const ContactManagement = () => {
   const handleSearch = () => {
     if (!searchTerm.trim()) {
       axios
-        .get("http://localhost:5000/contacts")
+        .get("https://wild-cyan-duckling-tie.cyclic.app/contacts")
         .then((response) => setContacts(response.data))
         .catch((error) => console.error(error));
     } else {
       // Search for contacts by name
       axios
-        .get(`http://localhost:5000/contacts/search/${searchTerm}`)
+        .get(`https://wild-cyan-duckling-tie.cyclic.app/contacts/search/${searchTerm}`)
         .then((response) => setContacts(response.data))
         .catch((error) => console.error(error));
     }

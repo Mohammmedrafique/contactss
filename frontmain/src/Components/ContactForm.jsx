@@ -21,7 +21,7 @@ const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/contacts",
+        "https://wild-cyan-duckling-tie.cyclic.app/contacts",
         formData
       );
       console.log("Data posted successfully:", response.data);
